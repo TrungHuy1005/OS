@@ -8,8 +8,14 @@
     flex: 1;
 }
 
+.head {
+    height: 3.5rem;
+    background-color: #000000;
+    width:100%;
+}
+
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-color: #FCE8D1;
 }
 
 .top-row {
@@ -30,6 +36,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+.bill{
+    margin-left:15px;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth) {

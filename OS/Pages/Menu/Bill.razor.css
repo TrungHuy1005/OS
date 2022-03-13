@@ -1,4 +1,65 @@
-﻿.bill{
+﻿.tag{
     font-size:30px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.info-cart {
+    width:570px;
+    margin-left:5px;
+    padding: 20px;
+    background-color: #FCE8D1;
+    border-radius: 50px;
+}
+
+.product-oforder{
+    margin-bottom:35px;
+}
+
+.img-product {
+    border-radius: 50%;
+    width: 95px;
+}
+
+.product-info{
+    margin-left: 65px;
+    margin-top:15px;
+}
+
+.input-group{
+    margin-top:27px;
+    margin-left:10px;
+}
+
+.frm-quantity {
+    height: 30px;
+    margin-top:10px;
+}
+
+.btn-outline-secondary{
+    width:70%;
+    height: 25px;
+    padding: 0;
+    margin-bottom:5px;
+}
+
+.price{
+    margin-top:42px;
+}
+
+.total-product{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-total-price {
+    background-color: black;
+    color: white;
+    padding: 18px;
+    border-radius: 35px;
+    margin-left: 70px;
+}
+
+.btn-total-price:hover{
+    background-color: rgb(128 128 128);
 }

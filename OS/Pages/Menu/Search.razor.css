@@ -1,0 +1,22 @@
+﻿.header{
+    padding-top: 6px;
+}
+
+.navbar-brand{
+    color: white;
+    margin-left: 30px;
+}
+
+.frm-search{
+    display: inline-block;
+    float:right;
+    margin-right: 40px;
+    margin-top: 6px;
+}
+
+.ip-search{
+    width:800px;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 10px;
+}

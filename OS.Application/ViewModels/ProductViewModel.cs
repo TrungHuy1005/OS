@@ -1,13 +1,13 @@
-﻿using System;
+﻿using OS.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace OS.Domain.Models
+namespace OS.Application.ViewModels
 {
-    public class Product
+    public class ProductViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,7 +15,5 @@ namespace OS.Domain.Models
         public int Price { get; set; }
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual ICollection<CartProduct> CartProducts { get; set; }
     }
 }

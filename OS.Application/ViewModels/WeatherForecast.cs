@@ -1,6 +1,6 @@
 using System;
 
-namespace OS.Data
+namespace OS.Application.Data
 {
     public class WeatherForecast
     {

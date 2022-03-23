@@ -32,11 +32,5 @@ namespace OS.Service.Services
                 return null;
             }    
         }
-        public async Task<bool> AddListProductFromExcelFileAsync(IBrowserFile browserFile)
-        {
-
-            return true;
-        }
-
     }
 }

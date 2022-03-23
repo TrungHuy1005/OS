@@ -12,6 +12,5 @@ namespace OS.Application.Interfaces
     public interface IProductService
     {
         List<ProductViewModel> GetAllProduct();
-        Task<bool> AddListProductFromExcelFileAsync(IBrowserFile browserFile);
     }
 }

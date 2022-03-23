@@ -10,6 +10,7 @@ using OS.Application.Automapper;
 using OS.Application.Data;
 using OS.Application.Interfaces;
 using OS.Data.Context;
+using OS.Domain.Models;
 using OS.Service.Services;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,9 @@ namespace OS
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IPaymentSerivce, PaymentService>();
+            services.AddTransient<IEmailService, EmailSerivce>();
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

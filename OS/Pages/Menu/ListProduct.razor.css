@@ -1,0 +1,122 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background-color: #F8F2EB;
+    padding: 200px 0px;
+}
+
+.col-10 {
+    margin: 0;
+    padding: 0;
+}
+
+.list-product {
+    padding: 60px 0px;
+    margin: 0px;
+}
+
+.list-product__col {
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-body {
+    height: 180px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.list-product__card {
+    padding: 0px;
+}
+
+.list-product__img {
+    width: 180px;
+    height: 180px;
+    border-radius: 91px;
+}
+/* ..... */
+
+.list-product__text {
+    font-size: 28px;
+    padding: 0px;
+}
+
+.list-product-name {
+    Font-family: Roboto;
+    Font-style: Bold;
+    height: 90px;
+}
+
+.list-product__price {
+    padding-top: 20px;
+    color: #493D3D;
+}
+/* ........ */
+
+.list-product__backgrourd {
+    background-color: #F8F2EB;
+    width: 95%;
+    margin: 0px;
+}
+/* icon */
+
+.fa-caret-right {
+    z-index: 3;
+    width: 60px;
+    padding-left: 30px;
+    color: black;
+}
+
+.list-product__icon {
+    padding: 0px;
+    margin: 0px;
+    /* background-color: #F8F2EB; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    display: flex;
+    align-items: center;
+}
+
+.roww3 {
+    background-color: bisque;
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+}
+
+.list-product__content {
+    display: flex;
+}
+
+.list-product__row1 {
+    Font-family: Readex Pro;
+    Font-style: Regular;
+    Font-size: 50px;
+    z-index: 2px;
+    color: black;
+    border-radius: 80px;
+    padding-bottom: 70px;
+    /* background-color: aquamarine; */
+}
+
+.list-product__row1__payment {
+    border-radius: 80px;
+    /* background-color: black; */
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.list-product__row1__payment__btn {
+    background-color: black;
+    color: white;
+    width: 150px;
+    border-radius: 90px;
+    height: 70px;
+    Font-family: Roboto Font;
+    font-size: large;
+}

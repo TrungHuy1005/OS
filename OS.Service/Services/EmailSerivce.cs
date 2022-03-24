@@ -30,31 +30,25 @@ namespace OS.Service.Services
             {
                 return "Email To Address Empty";
             }
-            SmtpClient smtpClient = new SmtpClient(mailSettings.Host, mailSettings.Port);
-            smtpClient.EnableSsl = true;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.UseDefaultCredentials = true;
-            smtpClient.Credentials = new System.Net.NetworkCredential(mailSettings.Mail,mailSettings.Password,mailSettings.Host);
-            using (MailMessage message = new MailMessage())
+            try
             {
-                message.From = new MailAddress(mailSettings.Mail);
-                message.Priority = MailPriority.High;
-                message.Subject = mailContent.Subject == null ? "" : mailContent.Subject;
-                message.Body = mailContent.Body == null ? "" : mailContent.Body;
-                message.IsBodyHtml = true;
-                foreach (string email in mailContent.To)
-                {
-                    message.To.Add(email);
-                }
-                /*try
-                {*/
-                    smtpClient.Send(message);
-                    return "Email Send SuccessFully";
-               /* }
-                catch
-                {
-                    return "Email Send failed";
-                }*/
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(mailSettings.Mail);
+                mail.To.Add(mailContent.To);
+                mail.Subject = mailContent.Subject;
+                mail.IsBodyHtml = true;
+                mail.Body = mailContent.Body;
+                SmtpClient SmtpServer = new SmtpClient(mailSettings.Host);
+                mail.Priority = MailPriority.High;
+                SmtpServer.Port = mailSettings.Port;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(mailSettings.Mail.Trim(), mailSettings.Password.Trim());
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
             }
         }
 

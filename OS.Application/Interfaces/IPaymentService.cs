@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace OS.Application.Interfaces
 {
-    public interface IPaymentSerivce
+    public interface IPaymentService
     {
-        int Payment(List<ProductViewModel> products);
+        string Payment();
     }
 }

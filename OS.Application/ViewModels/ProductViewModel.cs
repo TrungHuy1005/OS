@@ -15,5 +15,6 @@ namespace OS.Application.ViewModels
         public int Price { get; set; }
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
+        public int Quantity { get; set; }
     }
 }

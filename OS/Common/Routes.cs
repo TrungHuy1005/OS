@@ -7,9 +7,8 @@ namespace OS.Common
 {
     public static class Routes
     {
-        public const string Menu = "/thuc-don";
+        public const string Menu = "/";
         public const string Payment = "/thanh-toan"; 
         public const string Login = "/dang-nhap";
-
     }
 }

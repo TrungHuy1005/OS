@@ -1,17 +1,16 @@
-﻿@page "/thuc-don"
-<div class="head">
+﻿<div class="head">
     <Search />
 </div>
 
 <div class="page">
-        <div class="sidebar">
-            <LeftBar />
-        </div>
-        <div>
-            <button class="btn-dark" @onclick="SendMail">Send</button>
-        </div>
-        <div class="bill">
-            <Bill />
-        </div>
-    
+    <div class="sidebar">
+        <LeftBar />
+    </div>
+    <div>
+        <ListProduct />
+    </div>
+    <div style="display:none" class="bill">
+        <Bill />
+    </div>
+
 </div>

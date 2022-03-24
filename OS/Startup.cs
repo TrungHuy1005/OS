@@ -42,8 +42,10 @@ namespace OS
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
-            services.AddTransient<IPaymentSerivce, PaymentService>();
+            services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IEmailService, EmailSerivce>();
+            services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IOrderService, OrderService>();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 

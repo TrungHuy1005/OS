@@ -22,10 +22,10 @@ namespace OS.Pages.Menu
         {
             MailContent content = new MailContent
             {
+                To= "trunghuy0501@gmail.com",
                 Subject = "Kiểm tra thử",
                 Body = "<p><strong>Xin chào xuanthulab.net</strong></p>"
             };
-            content.To.Add("trunghuy0501@gmail.com");
             string num = IEmailService.SendEmail(content);
         }
     }

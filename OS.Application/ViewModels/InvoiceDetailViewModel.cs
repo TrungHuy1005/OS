@@ -9,7 +9,7 @@ namespace OS.Application.ViewModels
     public class InvoiceDetailViewModel
     {
         public int Id { get; set; }
-        public List<Product> Products { get; set; }
+        public List<ProductViewModel> Products { get; set; }
         public int TotalPrice { get; set; }
     }
 }

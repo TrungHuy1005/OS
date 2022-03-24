@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OS.Data", "OS.Data\OS.Data.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OS.Service", "OS.Service\OS.Service.csproj", "{F876BA22-BAFB-4441-B065-CEB00BDC877C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OS.Application", "Os.Application\OS.Application.csproj", "{1C24CBBA-2C8C-4FC0-9850-FB642793B5DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OS.Application", "Os.Application\OS.Application.csproj", "{1C24CBBA-2C8C-4FC0-9850-FB642793B5DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

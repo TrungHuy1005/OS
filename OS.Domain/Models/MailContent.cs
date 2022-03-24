@@ -9,7 +9,7 @@ namespace OS.Domain.Models
 {
     public class MailContent
     {
-        public List<string> To = new List<string>();
+        public string To { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
     }

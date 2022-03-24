@@ -1,0 +1,41 @@
+﻿body {
+    text-align: center;
+    position: relative;
+}
+
+.space {
+    height: 100px;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+}
+
+    .title label {
+        font-family: 'Roboto', sans-serif;
+        color: #222;
+        line-height: 40px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        font-size: 40px;
+        margin-left: 35%;
+    }
+
+#login-btn, #signup-btn {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-radius: 15px;
+}
+
+.remind {
+    font-size: smaller;
+    color: darkblue;
+    text-decoration: underline;
+}
+
+hr {
+    margin: 5%;
+    width: 100%;
+}

@@ -2,14 +2,14 @@
     <Search />
 </div>
 
-<div class="page">
-    <div class="sidebar">
+<div class="page ">
+    <div class="sidebar @(isOrder==false ? "d-block" : "d-none")">
         <LeftBar />
     </div>
     <div>
-        <ListProduct />
+        <ListProduct IsOrder="@isOrder" HandleOrderProduct="@HandleOrderProduct"/>
     </div>
-    <div style="display:none" class="bill">
+    <div class="bill @(isOrder==true ? "d-block" : "d-none")">
         <Bill />
     </div>
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using NETCore.MailKit.Core;
+using OS.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

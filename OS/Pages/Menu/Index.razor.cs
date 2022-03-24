@@ -12,6 +12,7 @@ namespace OS.Pages.Menu
     public partial class Index:ComponentBase
     {
         private ProductViewModel productViewModel = new ProductViewModel();
+        private bool isOrder;
         [Inject]
         public IEmailService IEmailService { get; set; }
         protected override async Task OnInitializedAsync()
@@ -27,6 +28,10 @@ namespace OS.Pages.Menu
                 Body = "<p><strong>Xin chào xuanthulab.net</strong></p>"
             };
             string num = IEmailService.SendEmail(content);
+        }
+        public void HandleOrderProduct(bool isOrder)
+        {
+            this.isOrder = isOrder;
         }
     }
 }

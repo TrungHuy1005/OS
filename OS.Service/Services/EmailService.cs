@@ -17,10 +17,10 @@ using System.Threading.Tasks;
 
 namespace OS.Service.Services
 {
-    public class EmailSerivce : IEmailService
+    public class EmailService : IEmailService
     {
         private readonly Domain.Models.MailSettings mailSettings;
-        public EmailSerivce(IOptions<Domain.Models.MailSettings> _mailSettings)
+        public EmailService(IOptions<Domain.Models.MailSettings> _mailSettings)
         {
             mailSettings = _mailSettings.Value;
         }

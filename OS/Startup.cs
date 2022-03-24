@@ -43,7 +43,7 @@ namespace OS
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IPaymentService, PaymentService>();
-            services.AddTransient<IEmailService, EmailSerivce>();
+            services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<ILoginService, LoginService>();
             services.AddTransient<IOrderService, OrderService>();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));

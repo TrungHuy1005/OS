@@ -11,7 +11,10 @@ namespace OS.Pages.Menu
     public partial class LeftBar : ComponentBase
     {
         private List<CategoryViewModel> categories = new List<CategoryViewModel>();
-        private List<ProductViewModel> products = new List<ProductViewModel>();
+        [Parameter]
+        public List<ProductViewModel> products { get; set; }
+        [Parameter]
+        public EventCallback<List<ProductViewModel>> HandleGetAllProduct { get; set; }
         [Inject]
         public ICategoryService ICategoryService { get; set; }
         [Inject]
@@ -28,9 +31,15 @@ namespace OS.Pages.Menu
         {
             categories = ICategoryService.GetAllCategories();
         }
-        protected void HandleProductByCategory(CategoryViewModel category)
+        protected async Task GetAllProduct()
         {
-            products = (IProductService.GetAllProduct().Where(t=>t.CategoryId==category.Id)).ToList();
+            products = IProductService.GetAllProduct();
+            await HandleGetAllProduct.InvokeAsync(products);
+        }
+        protected async Task GetAllProductByCategory(int id)
+        {
+            products = IProductService.GetAllProductByCategory(id);
+            await HandleGetAllProduct.InvokeAsync(products);
         }
     }
 }

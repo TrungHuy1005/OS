@@ -32,5 +32,18 @@ namespace OS.Service.Services
                 return null;
             }    
         }
+        public List<ProductViewModel> GetAllProductByCategory(int idCategory)
+        {
+            var context = _dbContextFactory.CreateDbContext();
+            List<Product> products = context.Product.Where(t=>t.CategoryId==idCategory).ToList();
+            if (products is not null)
+            {
+                return _mapper.Map<List<ProductViewModel>>(products);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

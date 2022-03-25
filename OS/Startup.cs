@@ -46,6 +46,7 @@ namespace OS
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<ILoginService, LoginService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<ISearchProductService, SearchProductService>();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 

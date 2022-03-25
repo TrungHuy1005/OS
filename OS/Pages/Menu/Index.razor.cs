@@ -13,11 +13,11 @@ namespace OS.Pages.Menu
     {
         private ProductViewModel productViewModel = new ProductViewModel();
         private bool isOrder;
+        private List<ProductViewModel> products = new List<ProductViewModel>();
         [Inject]
         public IEmailService IEmailService { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            
         }
         public void SendMail()
         {
@@ -32,6 +32,10 @@ namespace OS.Pages.Menu
         public void HandleOrderProduct(bool isOrder)
         {
             this.isOrder = isOrder;
+        }
+        public void HandleGetAllProduct(List<ProductViewModel> products)
+        {
+            this.products = products;
         }
     }
 }

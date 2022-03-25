@@ -14,10 +14,12 @@ namespace OS.Pages.Menu
         public EventCallback<bool> HandleOrderProduct { get; set; }
         protected override void OnInitialized()
         {
+            IsOrder = false;
         }
-        public void HandleOrder()
+        protected async Task HandleOrder()
         {
-            IsOrder = true;
+            IsOrder = !IsOrder;
+            await HandleOrderProduct.InvokeAsync(IsOrder);
         }
     }
 }

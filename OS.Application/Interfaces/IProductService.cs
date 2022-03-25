@@ -12,5 +12,6 @@ namespace OS.Application.Interfaces
     public interface IProductService
     {
         List<ProductViewModel> GetAllProduct();
+        List<ProductViewModel> GetAllProductByCategory(int idCategory);
     }
 }

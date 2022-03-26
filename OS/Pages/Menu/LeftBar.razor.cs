@@ -30,6 +30,7 @@ namespace OS.Pages.Menu
         protected override void OnInitialized()
         {
             categories = ICategoryService.GetAllCategories();
+            products = IProductService.GetAllProduct();
         }
         protected async Task GetAllProduct()
         {

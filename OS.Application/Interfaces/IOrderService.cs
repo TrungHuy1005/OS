@@ -10,7 +10,7 @@ namespace OS.Application.Interfaces
     public interface IOrderService
     {
         List<ProductViewModel> GetListProductOrder();
-        int GetOrder(InvoiceDetailViewModel invoice);
+        int GetOrder(List<ProductViewModel> productsOrder);
         int GetTotalProductOrder(List<ProductViewModel> products);
     }
 }

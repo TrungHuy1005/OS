@@ -7,10 +7,10 @@
         <LeftBar products="@products" HandleGetAllProduct="HandleGetAllProduct"/>
     </div>
     <div>
-        <ListProduct IsOrder="@isOrder" HandleOrderProduct="HandleOrderProduct"/>
+        <ListProduct IsOrder="@isOrder" HandleOrderProduct="HandleOrderProduct" HandleOrderProductToBill="HandleOrderProductToBill" products="@products"/>
     </div>
     <div class="bill @(isOrder ? "d-block" : "d-none")">
-        <Bill />
+        <Bill productOrder="@productOrder"/>
     </div>
 
 </div>

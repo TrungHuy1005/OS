@@ -31,16 +31,23 @@ namespace OS.Service.Services
                 return null;
             }
         }
-        public int GetOrder(InvoiceDetailViewModel invoice)
+        public int GetOrder(List<ProductViewModel> productsOrder)
         {
-            invoice.TotalPrice = 0;
-            invoice.TotalPrice += (invoice.Products.Select(t => t.Price).FirstOrDefault()) * (invoice.Products.Select(h => h.Quantity).FirstOrDefault());
-            return invoice.TotalPrice;
+            int total = 0;
+            foreach(var item in productsOrder)
+            {
+                total += item.Price * item.Quantity;
+            }
+            return total;
         }
         public int GetTotalProductOrder(List<ProductViewModel> products)
         {
             int quantity = 0;
-            quantity += products.Select(t => t.Quantity).FirstOrDefault();
+            foreach(var item in products)
+            {
+                quantity += item.Quantity;
+
+            }
             return quantity;
         }
     }

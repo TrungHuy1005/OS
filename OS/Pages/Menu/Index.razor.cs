@@ -11,13 +11,17 @@ namespace OS.Pages.Menu
 {
     public partial class Index:ComponentBase
     {
-        private ProductViewModel productViewModel = new ProductViewModel();
+
+        private ProductViewModel productOrder;
         private bool isOrder;
         private List<ProductViewModel> products = new List<ProductViewModel>();
         [Inject]
         public IEmailService IEmailService { get; set; }
-        protected override async Task OnInitializedAsync()
+        [Inject]
+        public IProductService IProductService { get; set; }
+        protected override void OnInitialized()
         {
+            products = IProductService.GetAllProduct();
         }
         public void SendMail()
         {
@@ -36,6 +40,10 @@ namespace OS.Pages.Menu
         public void HandleGetAllProduct(List<ProductViewModel> products)
         {
             this.products = products;
+        }
+        public void HandleOrderProductToBill(ProductViewModel productOrder)
+        {
+            this.productOrder = productOrder;
         }
     }
 }

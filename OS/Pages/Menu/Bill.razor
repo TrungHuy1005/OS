@@ -10,133 +10,40 @@ else
         {
             <div class="row product-oforder">
                 <div class="col-1">
-                    <img class="img-product" src="./img/Tradaocamxa.jpg" />
+                    <img class="img-product" src="@item.Image" />
                 </div>
                 <div class="col-4">
                     <div class="product-info">
-                        <p><b>Trà đào cam xả màu vàng</b></p>
-                        35.000
+                        <p><b>@item.Name</b></p>
+                        @item.Price
                     </div>
                 </div>
                 <div class="col-5">
                     <div class="input-group mb-3 row">
                         <div class="col-9">
-                            <input type="text" class="form-control frm-quantity" value="2" aria-describedby="button-addon2">
+                            <input type="text" class="form-control frm-quantity" value="@item.Quantity" aria-describedby="button-addon2">
                         </div>
                         <div class="col-3">
                             <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 minus">-</button>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 minus" @onclick="()=>MinusQuantity(item)">-</button>
                             </div>
                             <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 plus">+</button>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 plus" @onclick="()=>PlusQuantity(item)">+</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-1">
-                    <p class="price"><b>70.000</b></p>
+                    <p class="price"><b>@(item.Quantity*item.Price)</b></p>
                 </div>
             </div>
-
-            <div class="row product-oforder">
-                <div class="col-1">
-                    <img class="img-product" src="./img/Latte Macchiato.jpg" />
-                </div>
-                <div class="col-4">
-                    <div class="product-info">
-                        <p><b>Latte Macchiato</b></p>
-                        50.000
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="input-group mb-3 row">
-                        <div class="col-9">
-                            <input type="text" class="form-control frm-quantity" value="3" aria-describedby="button-addon2">
-                        </div>
-                        <div class="col-3">
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 minus">-</button>
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 plus">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <p class="price"><b>150.000</b></p>
-                </div>
-            </div>
-
-            <div class="row product-oforder">
-                <div class="col-1">
-                    <img class="img-product" src="./img/Cappuccino Vietnest.jpg" />
-                </div>
-                <div class="col-4">
-                    <div class="product-info">
-                        <p><b>Latte Macchiato</b></p>
-                        55.000
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="input-group mb-3 row">
-                        <div class="col-9">
-                            <input type="text" class="form-control frm-quantity" value="1" aria-describedby="button-addon2">
-                        </div>
-                        <div class="col-3">
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 minus">-</button>
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 plus">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <p class="price"><b>55.000</b></p>
-                </div>
-            </div>
-
-            <div class="row product-oforder">
-                <div class="col-1">
-                    <img class="img-product" src="./img/Tradaocamxa.jpg" />
-                </div>
-                <div class="col-4">
-                    <div class="product-info">
-                        <p><b>Trà đào cam xả màu vàng</b></p>
-                        35.000
-                    </div>
-                </div>
-                <div class="col-5">
-                    <div class="input-group mb-3 row">
-                        <div class="col-9">
-                            <input type="text" class="form-control frm-quantity" value="2" aria-describedby="button-addon2">
-                        </div>
-                        <div class="col-3">
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 minus">-</button>
-                            </div>
-                            <div class="row">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2 plus">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <p class="price"><b>70.000</b></p>
-                </div>
-            </div>
-
         }
-
-
         <div class="row">
             <div class="col-6">
-                <p class="total-product"><b>@*@IOrderService.GetTotalProductOrder(invoice.Products)*@</b></p>
+                <p class="total-product"><b>Tổng: @invoice.TotalProduct</b></p>
             </div>
             <div class="col-6">
-                <button class="btn btn-total-price" type="button" onclick="window.location.href='./thanh-toan'"><b>Tổng: @*@invoice.TotalPrice*@</b></button>
+                <button class="btn btn-total-price" type="button" onclick="window.location.href='./thanh-toan'"><b>Tổng: @invoice.TotalPrice</b></button>
             </div>
         </div>
     </div>

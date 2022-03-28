@@ -4,6 +4,10 @@
     flex-direction: column;
 }
 
+.list-product-page{
+    width: 135%;
+}
+
 .main {
     flex: 1;
 }

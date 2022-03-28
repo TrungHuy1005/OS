@@ -11,7 +11,7 @@ namespace OS.Pages.Menu
 {
     public partial class Index:ComponentBase
     {
-
+        private string searchValue;
         private ProductViewModel productOrder;
         private bool isOrder;
         private List<ProductViewModel> products = new List<ProductViewModel>();
@@ -19,19 +19,18 @@ namespace OS.Pages.Menu
         public IEmailService IEmailService { get; set; }
         [Inject]
         public IProductService IProductService { get; set; }
-        protected override void OnInitialized()
+        [Inject]
+        ISearchProductService ISearchProductService { get; set; }
+        protected override void OnParametersSet()
         {
-            products = IProductService.GetAllProduct();
-        }
-        public void SendMail()
-        {
-            MailContent content = new MailContent
+            if (searchValue == null)
             {
-                To= "trunghuy0501@gmail.com",
-                Subject = "Kiểm tra thử",
-                Body = "<p><strong>Xin chào xuanthulab.net</strong></p>"
-            };
-            string num = IEmailService.SendEmail(content);
+                products = IProductService.GetAllProduct();
+            } 
+            else
+            {
+                products = ISearchProductService.GetSearchAllProduct(searchValue);
+            }
         }
         public void HandleOrderProduct(bool isOrder)
         {
@@ -44,6 +43,11 @@ namespace OS.Pages.Menu
         public void HandleOrderProductToBill(ProductViewModel productOrder)
         {
             this.productOrder = productOrder;
+        }
+        private void OnSearchValueChanged(string keyword)
+        {
+            searchValue = keyword;
+            OnParametersSet();
         }
     }
 }

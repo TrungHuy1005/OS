@@ -12,5 +12,6 @@ namespace OS.Application.Interfaces
         List<ProductViewModel> GetListProductOrder();
         int GetOrder(List<ProductViewModel> productsOrder);
         int GetTotalProductOrder(List<ProductViewModel> products);
+        void CreateCart(InvoiceDetailViewModel invoice);
     }
 }

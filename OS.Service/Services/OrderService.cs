@@ -18,6 +18,23 @@ namespace OS.Service.Services
         {
 
         }
+        public void CreateCart(InvoiceDetailViewModel invoice)
+        {
+            var context = _dbContextFactory.CreateDbContext();
+            Bill bill = new Bill();
+            bill.Total = invoice.TotalPrice;
+            context.Bill.Add(bill);
+            context.SaveChanges();
+            foreach (var item in invoice.Products)
+            {
+                CartProduct cart = new CartProduct();
+                cart.BillId = bill.Id;
+                cart.ProductId = item.Id;
+                cart.Quantity = item.Quantity;
+                context.CartProduct.Add(cart);
+            }    
+            context.SaveChanges();
+        }  
         public List<ProductViewModel> GetListProductOrder()
         {
             var context = _dbContextFactory.CreateDbContext();

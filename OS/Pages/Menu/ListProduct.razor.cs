@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorAnimate;
+using Microsoft.AspNetCore.Components;
 using OS.Application.Interfaces;
 using OS.Application.ViewModels;
 using System;
@@ -10,6 +11,7 @@ namespace OS.Pages.Menu
 {
     public partial class ListProduct : ComponentBase
     {
+        private Animate animate;
         [Parameter]
         public bool IsOrder { get; set; }
         [Parameter]
@@ -36,9 +38,8 @@ namespace OS.Pages.Menu
         {
             this.product = product;
             this.product.Quantity = 1;
-            IsOrder = true;
-            await HandleOrderProduct.InvokeAsync(IsOrder);
             await HandleOrderProductToBill.InvokeAsync(this.product);
+            animate.Run();
         }
     }
 }

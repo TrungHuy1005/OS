@@ -6,7 +6,7 @@
     <div class="sidebar @(!isOrder ? "d-block" : "d-none")">
         <LeftBar products="@products" HandleGetAllProduct="HandleGetAllProduct"/>
     </div>
-    <div>
+    <div class="list-product-page">
         <ListProduct IsOrder="@isOrder" HandleOrderProduct="HandleOrderProduct" HandleOrderProductToBill="HandleOrderProductToBill" products="@products"/>
     </div>
     <div class="bill @(isOrder ? "d-block" : "d-none")">

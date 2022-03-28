@@ -2,14 +2,14 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4" style="padding-bottom:70px;">
                 <div class="customer-info">
                     <div class="col-12 payment-infomation justify-content-center" >
                         <h3 class="mr-3">THÔNG TIN KHÁCH HÀNG</h3>
 
                     </div>
                     <div class="col-12 payment-editname">
-                        <input required="" type="text" value="" name="username" id="customer_name" placeholder="Email" class="text" >
+                        <input required="" type="email" value="" name="username" id="customer_name" placeholder="Email" class="text" >
 
                     </div>
                     <div class="col-12 payment-editphone">
@@ -40,46 +40,22 @@
             <!-- left page -->
             <div class="col-12 col-md-8">
                 <div class="invoice">
-                    <h2 class="mb-3" >HÓA ĐƠN</h2>
-
-                    <div class="payment-bill d-flex align-items-center justify-content-between " style="user-select: auto;">
-                        <p class="me-3 mb-2" >Trà đào cam xả màu vàng </p>
-                        <p class="fw-medium" >35.000 x 2</p>
-                    </div>
-
-                    <div class="payment-bill d-flex align-items-center justify-content-between" style="user-select: auto;">
-                        <p class="me-3 mb-2" >Sinh tố bơ màu xanh</p>
-                        <p class="fw-medium" >50.000 x 2</p>
-                    </div>
-
-                    <div class="payment-bill d-flex align-items-center justify-content-between" style="user-select: auto;">
-                        <p class="me-3 mb-2" >Cappuccino Vietnest</p>
-                        <p class="fw-medium" >55.000 x 1</p>
-                    </div>
-
-                    <div class="payment-checkout d-flex align-items-center justify-content-around ">
-                        <p class="fs-24 fw-medium text-left" >TỔNG: 225.000</p>
-                        <a class="btn btn-dark payment-checkout__btn d-flex align-items-center justify-content-center" >THANH TOÁN</a>
-                    <h2 class="mb-3" style="user-select: auto;">HÓA ĐƠN</h2>
+                    <h2 class="mb-3">HÓA ĐƠN</h2>
                     @if (carts is not null)
                     {
                         foreach (var item in carts)
                         {
                             <div class="payment-bill d-flex align-items-center justify-content-between " style="user-select: auto;">
-                                <p class="me-3 mb-2" style="user-select: auto;">@products.Where(t => t.Id == item.ProductId).FirstOrDefault().Name</p>
-                                <p class="fw-medium" style="user-select: auto;">@products.Where(t => t.Id == item.ProductId).FirstOrDefault().Price x @item.Quantity</p>
+                                <p class="me-3 mb-2">@products.Where(t => t.Id == item.ProductId).FirstOrDefault().Name</p>
+                                <p class="fw-medium">@products.Where(t => t.Id == item.ProductId).FirstOrDefault().Price x @item.Quantity</p>
                             </div>
                         }
                     }
-                    <div class="payment-checkout d-flex align-items-bottom justify-content-between ">
-                        <p class="fs-24 fw-medium text-left" style="user-select: auto;">TỔNG: @bills[bills.Count-1].Total</p>
-                        <a class="btn btn-dark" style="user-select: auto;" @onclick="SendMail">THANH TOÁN</a>
+                    <div class="payment-checkout d-flex align-items-center justify-content-around ">
+                        <p class="fs-24 fw-medium text-left">TỔNG: @bills[bills.Count - 1].Total</p>
+                        <a class="btn btn-dark payment-checkout__btn d-flex align-items-center justify-content-center" @onclick="SendMail">THANH TOÁN</a>
                     </div>
-
-
                 </div>
-
             </div>
-
         </div>
-</div>
+    </div>

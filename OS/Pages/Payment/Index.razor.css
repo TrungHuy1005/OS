@@ -1,24 +1,21 @@
-﻿* {
-    margin: 0;
-    padding: 0;
+﻿*{
+    margin:0;
+    padding:0;
 }
 
 .col-md-4 {
     background-color: #F8F2EB;
-    height: 100%;
 }
 
-.customer-info {
-    margin-bottom: 40px;
+.mr-3 {
+    font-size: 25px;
+    margin-right: 20px;
 }
 
-/* sao h3 font size ko dc nho */
-
-.payment-infomation {
+.payment-infomation{
     display: flex;
-    height: 150px;
+    height: 100px;
     align-items: flex-end;
-    /* padding: 100px 0px 200px 0px; */
 }
 
 .payment-editname {
@@ -26,7 +23,7 @@
     justify-content: center;
     height: 60px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 #customer_name, #customer_phone {
@@ -34,15 +31,15 @@
     border-bottom: 2px solid #AFAFAF;
     background-color: transparent;
     width: 300px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-
-.payment-editphone {
+.payment-editphone{
     display: flex;
     justify-content: center;
     height: 60px;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .payment-method {
@@ -56,48 +53,48 @@
     justify-content: center;
 }
 
+.payment-method__choose__btn__radio {
+    margin-right: 5px;
+}
+
 .payment-method__choose__btn {
     display: flex;
     background-color: white;
     color: black;
-    height: 50px;
+    height: 45px;
     width: 60%;
     border-radius: 7px;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .payment-codescan {
     display: flex;
     justify-content: center;
-    height: 400px;
+    height: 185px;
     align-items: center;
 }
 
 .payment-codescan__qr {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
 }
 
-/* --------- */
-.col-md-8 {
-    height: 100%;
-}
-
+/*----------------*/
 .invoice {
     margin: 100px 50px 50px;
+    height: 490px;
 }
 
 .mb-3 {
-    font-size: 50px;
+    font-size: 35px;
 }
 
-
 .payment-bill {
-    height: 60px;
-    font-size: 25px;
+    height: 55px;
+    font-size: 20px;
     background-color: #F8F2EB;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -117,10 +114,6 @@
     font-weight: 500;
 }
 
-.invoice {
-    height: 750px;
-}
-
 .btn-dark {
     cursor: pointer;
     height: 40px;
@@ -128,4 +121,9 @@
     display: inline-block;
     text-align: center;
     border-radius: 55px;
+    color: white;
+}
+
+a.btn.btn-dark.payment-checkout__btn {
+    color: white;
 }

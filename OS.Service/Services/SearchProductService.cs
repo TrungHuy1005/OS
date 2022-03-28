@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using OS.Application.Interfaces;
 using OS.Application.ViewModels;
 using OS.Data.Context;
+using OS.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,12 @@ namespace OS.Service.Services
         public List<ProductViewModel> GetSearchAllProduct(string name)
         {
             var context = _dbContextFactory.CreateDbContext();
-            var products = context.Product.Where(t => t.Name.ToLower().Equals(name.Trim().ToLower())).ToList();
+            var products = context.Product.Where(t => t.Name.ToLower().Contains(name.ToLower())).ToList();
             if(products is null)
             {
                 return null;
             }    
             return _mapper.Map<List<ProductViewModel>>(products);
         }
-
     }
 }

@@ -42,5 +42,9 @@ namespace OS.Pages.Menu
             invoice.TotalPrice = IOrderService.GetOrder(invoice.Products);
             invoice.TotalProduct = IOrderService.GetTotalProductOrder(invoice.Products);
         }
+        public void CreateCart()
+        {
+            IOrderService.CreateCart(invoice);
+        }    
     }
 }

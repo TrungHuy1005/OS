@@ -1,4 +1,5 @@
 ﻿using OS.Application.ViewModels;
+using OS.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace OS.Application.Interfaces
     public interface IPaymentService
     {
         string Payment();
+        List<CartProductViewModel> GetAllCartByBill(Bill bill);
+        List<Bill> GetAllInvoice();
     }
 }

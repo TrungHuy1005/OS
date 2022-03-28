@@ -10,26 +10,11 @@ namespace OS.Pages.Menu
 {
     public partial class Search : ComponentBase
     {
-        private string searchName;
-        [Inject]
-        ISearchProductService ISearchProductService { get; set; }
-        [Inject]
-        IProductService IProductService { get; set; }
         [Parameter]
-        public List<ProductViewModel> products { get; set; }
-        [Parameter]
-        public EventCallback<List<ProductViewModel>> HandleSearchProduct { get; set; }
-        protected override async Task OnInitializedAsync()
+        public EventCallback<string> OnSearchValueChanged { get; set; }
+        private async Task OnValueChangeAsync(ChangeEventArgs e)
         {
-            if (searchName == null)
-            {
-                products = IProductService.GetAllProduct();
-            }
-            else
-            {
-                products = ISearchProductService.GetSearchAllProduct(searchName);
-            }
-            await HandleSearchProduct.InvokeAsync(products);
+            await OnSearchValueChanged.InvokeAsync(e.Value.ToString());
         }
     }
 }

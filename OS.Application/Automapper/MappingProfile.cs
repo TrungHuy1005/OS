@@ -31,6 +31,11 @@ namespace OS.Application.Automapper
             CreateMap<Category, CategoryViewModel>()
              .ForMember(t => t.Id, tt => tt.MapFrom(h => h.Id))
              .ForMember(t => t.Type, tt => tt.MapFrom(h => h.Type));
+            CreateMap<CartProduct, CartProductViewModel>()
+              .ForMember(t => t.Id, tt => tt.MapFrom(h => h.Id))
+              .ForMember(t => t.ProductId, tt => tt.MapFrom(h => h.ProductId))
+              .ForMember(t => t.Quantity, tt => tt.MapFrom(h => h.Quantity))
+             .ForMember(t => t.BillId, tt => tt.MapFrom(h => h.BillId));
         }
     }
 }

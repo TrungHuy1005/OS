@@ -1,6 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using OS.Application.Interfaces;
 using OS.Application.ViewModels;
+using OS.Data.Context;
 using OS.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +13,12 @@ using System.Threading.Tasks;
 
 namespace OS.Service.Services
 {
-    public class PaymentService : IPaymentService
+    public class PaymentService : BaseService,IPaymentService
     {
+        public PaymentService(IDbContextFactory<OnlineShopDbContext> dbContextFactory, IMapper mapper) : base(dbContextFactory, mapper)
+        {
+
+        }
         public string Payment()
         {
             //request params need to request to MoMo system
@@ -66,6 +73,18 @@ namespace OS.Service.Services
             JObject jmessage = JObject.Parse(responseFromMomo);
 
             return jmessage.GetValue("payUrl").ToString();
+        }
+        public List<Bill> GetAllInvoice()
+        {
+            var context = _dbContextFactory.CreateDbContext();
+            List<Bill> bills = context.Bill.ToList();
+            return bills;
         }    
+        public List<CartProductViewModel> GetAllCartByBill(Bill bill)
+        {
+            var context = _dbContextFactory.CreateDbContext();
+            List<CartProduct> carts= context.CartProduct.Where(t => t.BillId == bill.Id).ToList();
+            return _mapper.Map<List<CartProductViewModel>>(carts);
+        }
     }
 }

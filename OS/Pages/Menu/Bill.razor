@@ -43,7 +43,7 @@ else
                 <p class="total-product"><b>Tổng: @invoice.TotalProduct</b></p>
             </div>
             <div class="col-6">
-                <button class="btn btn-total-price" type="button" onclick="window.location.href='./thanh-toan'"><b>Tổng: @invoice.TotalPrice</b></button>
+                <a class="btn btn-total-price" href="./thanh-toan" @onclick="CreateCart"><b>Tổng: @invoice.TotalPrice</b></a>
             </div>
         </div>
     </div>

@@ -18,5 +18,6 @@ namespace OS.Domain.Models
         public List<Product> Products { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual ICollection<CartProduct> CartProducts { get; set; }
     }
 }

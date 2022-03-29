@@ -1,5 +1,57 @@
-﻿<h3>Index</h3>
+﻿@page  "/dang-nhap"
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 left">
+                    <img src="https://i.pinimg.com/564x/0c/18/0c/0c180ccfdcd98ab41139f923e31cabd7.jpg" alt="coffee">
+                </div>
+                <div class="col-6 right">
+                    <div class="space">
+
+                    </div>
+                    <div class="row title">
+                        <label>User Login</label>
+                    </div>
+                    <form style="padding-left: 30px; margin-top: 50px;">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="Check1">Check me out</label>
+                        </div>
+                        <p class="remind">
+                            Forgot password? Click here.
+                        </p>
+                        <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+                    </form>
+                    <hr>
+                    <form style="padding-left: 30px;">
+                        <button type="submit" class="btn btn-info" id="signup-btn">Sign up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
 
 @code {
+
 
 }

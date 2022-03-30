@@ -17,20 +17,25 @@ namespace OS.Service.Services
     {
         public PaymentService(IDbContextFactory<OnlineShopDbContext> dbContextFactory, IMapper mapper) : base(dbContextFactory, mapper)
         {
-
         }
-        public string Payment()
+        public string Payment(Bill bill,List<CartProductViewModel> carts,List<ProductViewModel> products)
         {
             //request params need to request to MoMo system
             string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
             string partnerCode = "MOMOOJOI20210710";
             string accessKey = "iPXneGmrJH0G8FOP";
             string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
-            string orderInfo = "test";
-            string returnUrl = "https://localhost:44394/Home/ConfirmPaymentClient";
-            string notifyurl = "http://ba1adf48beba.ngrok.io/Home/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
+            string orderInfo = "";
+            foreach(var item in carts)
+            {
+                ProductViewModel product = products.Where(t => t.Id == item.ProductId).FirstOrDefault();
+                orderInfo += product.Name + " , ";
 
-            string amount = "1000";
+            }
+            string returnUrl = "https://localhost:44394/";
+            string notifyurl = "http://ba1adf48beba.ngrok.io/Payment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
+
+            string amount = bill.Total.ToString();
             string orderid = DateTime.Now.Ticks.ToString();
             string requestId = DateTime.Now.Ticks.ToString();
             string extraData = "";

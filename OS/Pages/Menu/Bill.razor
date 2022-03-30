@@ -21,7 +21,7 @@ else
                 <div class="col-5">
                     <div class="input-group mb-3 row">
                         <div class="col-9">
-                            <input type="text" class="form-control frm-quantity" value="@item.Quantity" aria-describedby="button-addon2">
+                            <input type="text" class="form-control frm-quantity" value="@item.Quantity" aria-describedby="button-addon2" @oninput="(e)=>QuantityValueChanged(e,item)">
                         </div>
                         <div class="col-3">
                             <div class="row">

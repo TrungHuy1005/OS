@@ -11,10 +11,26 @@ namespace OS.Pages.Menu
     public partial class Search : ComponentBase
     {
         [Parameter]
-        public EventCallback<string> OnSearchValueChanged { get; set; }
-        private async Task OnValueChangeAsync(ChangeEventArgs e)
+        public bool IsOrder { get; set; }
+        [Parameter]
+        public EventCallback<bool> HandleOrderProduct { get; set; }
+        [Parameter]
+        public ProductViewModel productOrder { get; set; }
+        [Parameter]
+        public int isCountOrder { get; set; }
+        private int count = 0;
+        protected override void OnInitialized()
         {
-            await OnSearchValueChanged.InvokeAsync(e.Value.ToString());
+            IsOrder = false;
+        }
+        protected override void OnParametersSet()
+        {
+            count = isCountOrder;
+        }
+        protected async Task HandleOrder()
+        {
+            IsOrder = !IsOrder;
+            await HandleOrderProduct.InvokeAsync(IsOrder);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace OS.Application.Interfaces
 {
     public interface IPaymentService
     {
-        string Payment();
+        string Payment(Bill bill, List<CartProductViewModel> carts, List<ProductViewModel> products);
         List<CartProductViewModel> GetAllCartByBill(Bill bill);
         List<Bill> GetAllInvoice();
     }

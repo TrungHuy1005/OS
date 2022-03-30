@@ -11,8 +11,8 @@ namespace OS.Pages.Menu
 {
     public partial class Index:ComponentBase
     {
-        private string searchValue;
         private ProductViewModel productOrder;
+        private int isCountOrder;
         private bool isOrder;
         private List<ProductViewModel> products = new List<ProductViewModel>();
         [Inject]
@@ -21,17 +21,6 @@ namespace OS.Pages.Menu
         public IProductService IProductService { get; set; }
         [Inject]
         ISearchProductService ISearchProductService { get; set; }
-        protected override void OnParametersSet()
-        {
-            if (searchValue == null)
-            {
-                products = IProductService.GetAllProduct();
-            } 
-            else
-            {
-                products = ISearchProductService.GetSearchAllProduct(searchValue);
-            }
-        }
         public void HandleOrderProduct(bool isOrder)
         {
             this.isOrder = isOrder;
@@ -44,10 +33,10 @@ namespace OS.Pages.Menu
         {
             this.productOrder = productOrder;
         }
-        private void OnSearchValueChanged(string keyword)
+       
+        public void HandleCountOrderChanged(int isCountOrder)
         {
-            searchValue = keyword;
-            OnParametersSet();
-        }
+            this.isCountOrder = isCountOrder;
+        }    
     }
 }

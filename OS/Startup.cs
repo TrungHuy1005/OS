@@ -1,3 +1,4 @@
+using Blazored.Modal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +48,8 @@ namespace OS
             services.AddTransient<ILoginService, LoginService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<ISearchProductService, SearchProductService>();
+            services.AddTransient<IPaginationProductSerivce, PaginationProductSerivce>();
+            services.AddBlazoredModal();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 

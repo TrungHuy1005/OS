@@ -26,7 +26,7 @@
 .card-body {
     height: 180px;
     margin: 0px;
-    padding: 0px;
+    padding-bottom: 10px;
 }
 
 .list-product__card {
@@ -37,15 +37,19 @@
     width: 141px;
     height: 156px;
     border-radius: 91px;
+    cursor:pointer;
+    opacity:1;
 }
-/* ..... */
-
-.list-product__text {
-    font-size: 26px;
-    padding: 0px;
-    width:100%;
-    height:100%;
-}
+    .list-product__img:hover {
+        opacity:0.6;
+    }   
+    /* ..... */
+    .list-product__text {
+        font-size: 26px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+    }
 
 .list-product-name {
     Font-family: Roboto;
@@ -81,6 +85,7 @@
     /* align-content: center; */
     display: flex;
     align-items: center;
+    cursor:pointer;
 }
 
 .roww3 {
@@ -101,7 +106,6 @@
     z-index: 2px;
     color: black;
     border-radius: 80px;
-    padding-bottom: 70px;
     /* background-color: aquamarine; */
 }
 
@@ -111,6 +115,7 @@
     color: white;
     display: flex;
     flex-direction: row-reverse;
+    position:relative;
 }
 
 .list-product__row1__payment__btn {
@@ -122,3 +127,4 @@
     Font-family: Roboto Font;
     font-size: large;
 }
+

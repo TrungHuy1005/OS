@@ -13,21 +13,38 @@ namespace OS.Pages.Menu
         private InvoiceDetailViewModel invoice = new InvoiceDetailViewModel();
         [Parameter]
         public ProductViewModel productOrder { get; set; }
+        [Parameter]
+        public int isCountOrder { get; set; } = 0;
         [Inject]
         IOrderService IOrderService { get; set; }
+        [Parameter]
+        public EventCallback<int> HandleCountOrderChanged { get; set; }
         protected override void OnParametersSet()
         {
-            if (productOrder == null) return;
-            if (invoice.Products.Contains(productOrder)) return;
+            if (productOrder == null)
+            {
+                return;
+            }
+            foreach (var item in invoice.Products)
+            {
+                if(item.Name.Contains(productOrder.Name))
+                {
+                    return;
+                }
+            }    
             invoice.Products.Add(productOrder);
+            isCountOrder = invoice.Products.Count;
+            HandleCountOrderChanged.InvokeAsync(isCountOrder);
             invoice.TotalPrice = IOrderService.GetOrder(invoice.Products);
             invoice.TotalProduct = IOrderService.GetTotalProductOrder(invoice.Products);
         }
         public void MinusQuantity(ProductViewModel product)
         {
-            if (product.Quantity <=0)
+            if (product.Quantity <= 0)
             {
                 invoice.Products.Remove(product);
+                isCountOrder = invoice.Products.Count;
+                HandleCountOrderChanged.InvokeAsync(isCountOrder);
             }
             else
             {
@@ -46,5 +63,18 @@ namespace OS.Pages.Menu
         {
             IOrderService.CreateCart(invoice);
         }    
+        public void QuantityValueChanged(ChangeEventArgs e,ProductViewModel product)
+        {
+            foreach(var item in invoice.Products)
+            {
+                if(item.Name==product.Name)
+                {
+                    if (e.Value.ToString().Length == 0) return;
+                    item.Quantity = Convert.ToInt32(e.Value.ToString());
+                }
+                invoice.TotalPrice = IOrderService.GetOrder(invoice.Products);
+                invoice.TotalProduct = IOrderService.GetTotalProductOrder(invoice.Products);
+            }    
+        }
     }
 }

@@ -14,6 +14,9 @@ namespace OS.Pages.Payment
         private List<CartProductViewModel> carts = new List<CartProductViewModel>();
         private List<Bill> bills = new List<Bill>();
         private List<ProductViewModel> products = new List<ProductViewModel>();
+        private InformationCustomerViewModel customer = new InformationCustomerViewModel();
+        private bool isPaymentWithMomo = false;
+        private string url;
         [Inject]
         IEmailService IEmailService { get; set; }
         [Inject]
@@ -28,13 +31,33 @@ namespace OS.Pages.Payment
         }
         public void SendMail()
         {
+            string table = "<table class='custom-table m-0 table-info table-striped' border='1'><thead><tr><th>Đồ uống</th><th>Số lượng</th><th>Tổng</th></thead><tbody>";
+            string endTable = "</tbody></table>";
+            string body = "";
+            string total = "<hr/>Tổng tiền thanh toán: " + bills[bills.Count - 1].Total.ToString();
+            foreach(var item in carts)
+            {
+                body += "<tr><td>" + products.Where(t => t.Id == item.ProductId).Select(t => t.Name).FirstOrDefault() + "</td><td>" + item.Quantity + "</td><td>" + products.Where(t => t.Id == item.ProductId).Select(t => t.Price).FirstOrDefault()*item.Quantity + "</td></tr>";
+            }
             MailContent content = new MailContent
             {
-                To = "trunghuy0501@gmail.com",
-                Subject = "Kiểm tra thử",
-                Body = "<p><strong>Xin chào xuanthulab.net</strong></p>"
+                To = customer.Email,
+                Subject = "Hóa đơn",
+                Body = table + body + endTable + total
             };
             string num = IEmailService.SendEmail(content);
+            url = IPaymentService.Payment(bills[bills.Count - 1],carts,products);
         }
+        public async Task EmailValueChanged(ChangeEventArgs e)
+        {
+            customer.Email = e.Value.ToString();
+        }
+        public void PaymentWithMomo(ChangeEventArgs e)
+        {
+            if(e.Value.ToString()=="on")
+            {
+                isPaymentWithMomo = true;
+            }    
+        }    
     }
 }

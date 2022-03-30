@@ -4,18 +4,21 @@
         <div class="row">
             <div class="col-12 col-md-4" style="padding-bottom:70px;">
                 <div class="customer-info">
-                    <div class="col-12 payment-infomation justify-content-center" >
-                        <h3 class="mr-3">THÔNG TIN KHÁCH HÀNG</h3>
-
-                    </div>
-                    <div class="col-12 payment-editname">
-                        <input required="" type="email" value="" name="username" id="customer_name" placeholder="Email" class="text" >
-
-                    </div>
-                    <div class="col-12 payment-editphone">
-                        <input required="" type="text" value="" name="phone" id="customer_phone" placeholder="Phone number" class="text" >
-
-                    </div>
+                    <EditForm Model="@customer">
+                        <div class="col-12 payment-infomation justify-content-center">
+                            <h3 class="mr-3">THÔNG TIN KHÁCH HÀNG</h3>
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+                        </div>
+                        <div class="col-12 payment-editname">
+                            <input required type="email" value="" name="username" id="customer_name" placeholder="Email" class="text" @onchange="async (e)=>await EmailValueChanged(e)">
+                            <ValidationMessage For=@(() => customer.Email) />
+                        </div>
+                        <div class="col-12 payment-editphone">
+                            <input required type="text" value="" name="phone" id="customer_phone" placeholder="Phone number" class="text">
+                            <ValidationMessage For=@(() => customer.PhoneNumber) />
+                        </div>
+                    </EditForm>
                 </div>
 
                 <div class="method">
@@ -29,7 +32,7 @@
                     </div>
                     <div class="col-12 payment-method__choose">
                         <div class="payment-method__choose__btn">
-                            <input class="payment-method__choose__btn__radio" type="radio"> Thanh toán bằng Ví MoMo
+                            <input class="payment-method__choose__btn__radio" type="radio" @onchange="(e)=>PaymentWithMomo(e)"> Thanh toán bằng Ví MoMo
                         </div>
                     </div>
                     <div class="col-12 payment-codescan">
@@ -53,7 +56,7 @@
                     }
                     <div class="payment-checkout d-flex align-items-center justify-content-around ">
                         <p class="fs-24 fw-medium text-left">TỔNG: @bills[bills.Count - 1].Total</p>
-                        <a class="btn btn-dark payment-checkout__btn d-flex align-items-center justify-content-center" @onclick="SendMail">THANH TOÁN</a>
+                        <a class="btn btn-dark payment-checkout__btn d-flex align-items-center justify-content-center" @onclick="SendMail" href="@url">THANH TOÁN</a>
                     </div>
                 </div>
             </div>

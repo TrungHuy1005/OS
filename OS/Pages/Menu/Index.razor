@@ -1,16 +1,16 @@
 ﻿<div class="head">
-    <Search OnSearchValueChanged="OnSearchValueChanged" />
+    <Search IsOrder="@isOrder" HandleOrderProduct="HandleOrderProduct" isCountOrder="@isCountOrder"/>
 </div>
 
 <div class="page">
-    <div class="sidebar @(!isOrder ? "d-block" : "d-none")">
+@*    <div class="sidebar @(!isOrder ? "d-block" : "d-none")">
         <LeftBar products="@products" HandleGetAllProduct="HandleGetAllProduct" />
-    </div>
+    </div>*@
     <div class="list-product-page">
-        <ListProduct IsOrder="@isOrder" HandleOrderProduct="HandleOrderProduct" HandleOrderProductToBill="HandleOrderProductToBill" products="@products"/>
+        <ListProduct  HandleOrderProductToBill="HandleOrderProductToBill" products="@products"/>
     </div>
     <div class="bill @(isOrder ? "d-block" : "d-none")">
-        <Bill productOrder="@productOrder" />
+        <Bill productOrder="@productOrder" isCountOrder="@isCountOrder" HandleCountOrderChanged="HandleCountOrderChanged"/>
     </div>
 
 </div>

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-1 list-product__icon">
-                <img class="fa-caret-right " src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/OOjs_UI_icon_previous-ltr.svg/1200px-OOjs_UI_icon_previous-ltr.svg.png" alt="">
+                <img class="fa-caret-right " src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/OOjs_UI_icon_previous-ltr.svg/1200px-OOjs_UI_icon_previous-ltr.svg.png" alt="" @onclick="HandleProductValueChangedLeft">
             </div>
 
             <div class="col-10 ">
@@ -11,9 +11,9 @@
                     <div class="col-6 ">
                         <label for="Tất cả đồ uống "><b>Tất cả đồ uống</b></label>
                     </div>
-                    <div class="col-6 list-product__row1__payment ">
-                        <button class="btn btn-danger list-product__row1__payment__btn" @onclick="HandleOrder"><b>Thanh toán</b></button>
-                    </div>
+                 @*   <div class="col-6 list-product__row1__payment ">
+                        <button class="btn btn-danger list-product__row1__payment__btn"><b>Thanh toán</b></button>
+                    </div>*@
                 </div>
                 <!-- ---- -->
                 <div class="row 1 list-product">
@@ -25,9 +25,6 @@
                                     <div class="list-product__content">
                                         <div class="col-6 list-product__card">
                                             <img class="list-product__img" src="@item.Image" alt="Hình ảnh" @onclick="()=>OrderProduct(item)">
-                                            <BlazorAnimate.Animate Animation="Animations.ZoomInRight" Duration="TimeSpan.FromSeconds(1)" @ref="animate" IsManual="true">
-                                                <img class="list-product__img" src="@item.Image" alt="Hình ảnh" @onclick="()=>OrderProduct(item)">
-                                            </BlazorAnimate.Animate>
                                         </div>
                                         <div class="col-6 list-product__text" @onclick="()=>OrderProduct(item)">
                                             <div class="list-product-name"> <b>@item.Name </b></div>
@@ -42,7 +39,7 @@
             </div>
             <!-- ------------- -->
             <div class="col-1 list-product__icon">
-                <img class="fa-caret-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/OOjs_UI_icon_next-ltr.svg/1200px-OOjs_UI_icon_next-ltr.svg.png" alt="">
+                <img class="fa-caret-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/OOjs_UI_icon_next-ltr.svg/1200px-OOjs_UI_icon_next-ltr.svg.png" alt="" @onclick="HandleProductValueChangedRight">
 
             </div>
          

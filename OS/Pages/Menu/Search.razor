@@ -1,8 +1,12 @@
 ﻿<div class="header">
     <a class="navbar-brand" href="/">Thực đơn</a>
-    <div class="frm-search">
+    @*<div class="frm-search">
             <input @oninput="async (e) => await OnValueChangeAsync(e)"
                    class="ip-search" type="text" placeholder="Tìm kiếm mặt hàng..." />
-        </div>
+        </div>*@
+    <div class="cart mt-2"  @onclick="HandleOrder">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-item">@count</span>
+    </div>
 </div>
 

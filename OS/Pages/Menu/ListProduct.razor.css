@@ -21,6 +21,7 @@
 .list-product__col {
     padding: 0px;
     margin: 0px;
+    margin-bottom: 70px;
 }
 
 .card-body {
@@ -31,12 +32,14 @@
 
 .list-product__card {
     padding: 0px;
+   
 }
 
 .list-product__img {
-    width: 141px;
-    height: 156px;
-    border-radius: 91px;
+    
+    border-radius: 100px;
+    width:150px;
+    height:150px;
 }
 /* ..... */
 
@@ -92,10 +95,11 @@
 
 .list-product__content {
     display: flex;
+    margin-bottom:50px;
 }
 
 .list-product__row1 {
-    Font-family: Readex Pro;
+    Font-family: ReadexPro;
     Font-style: Regular;
     Font-size: 50px;
     z-index: 2px;
@@ -121,4 +125,12 @@
     height: 70px;
     Font-family: Roboto Font;
     font-size: large;
+}
+@media only screen and (min-width: 1368px) and (max-width: 1568px) {
+    .list-product__text {
+        font-size: 20px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+    }
 }

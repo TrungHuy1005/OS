@@ -9,7 +9,7 @@
             <div class="col-10 ">
                 <div class="row list-product__row1">
                     <div class="col-6 ">
-                        <label for="Tất cả đồ uống "><b>Tất cả đồ uống</b></label>
+                        <label style="Font-family: Orbitron;" for="Tất cả đồ uống "><b>Tất cả đồ uống</b></label>
                     </div>
                     <div class="col-6 list-product__row1__payment ">
                         <button class="btn btn-danger list-product__row1__payment__btn" @onclick="HandleOrder"><b>Thanh toán</b></button>
@@ -23,13 +23,13 @@
                             <div class="  list-product__backgrourd">
                                 <div class="card-body">
                                     <div class="list-product__content">
-                                        <div class="col-6 list-product__card">
+                                        <div class="col-6 list-product__card d-flex justify-content-center" >
                                             <img class="list-product__img" src="@item.Image" alt="Hình ảnh" @onclick="()=>OrderProduct(item)">
                                             <BlazorAnimate.Animate Animation="Animations.ZoomInRight" Duration="TimeSpan.FromSeconds(1)" @ref="animate" IsManual="true">
                                                 <img class="list-product__img" src="@item.Image" alt="Hình ảnh" @onclick="()=>OrderProduct(item)">
                                             </BlazorAnimate.Animate>
                                         </div>
-                                        <div class="col-6 list-product__text" @onclick="()=>OrderProduct(item)">
+                                        <div class="col-6 list-product__text " @onclick="()=>OrderProduct(item)">
                                             <div class="list-product-name"> <b>@item.Name </b></div>
                                             <p class="list-product__price">@item.Price</p>
                                         </div>

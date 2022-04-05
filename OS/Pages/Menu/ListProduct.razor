@@ -23,9 +23,10 @@
                             <div class="  list-product__backgrourd">
                                 <div class="card-body">
                                     <div class="list-product__content">
-                                        <div class="col-6 list-product__card">
+                                        <div class="col-5 list-product__card">
                                             <img class="list-product__img" src="@item.Image" alt="Hình ảnh" @onclick="()=>OrderProduct(item)">
                                         </div>
+                                        <div class="col-1"></div>
                                         <div class="col-6 list-product__text" @onclick="()=>OrderProduct(item)">
                                             <div class="list-product-name"> <b>@item.Name </b></div>
                                             <p class="list-product__price">@item.Price</p>
